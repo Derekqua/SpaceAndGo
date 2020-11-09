@@ -7,7 +7,7 @@ namespace SpaceAndGo.Models
 {
     public class LocationData
     {
-
+        public string Location { get; set; }
         public string CrowdNow { get; set; }
     }
 }

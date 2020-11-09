@@ -76,36 +76,40 @@ namespace SpaceAndGo.Controllers
 
         public async Task<ActionResult> ViewMap()
         {
-            var location = "Block 1";
-            //var crowd = "5";
-            //var userId = "123456";
-            //var currentLoginTime = DateTime.UtcNow.ToString("MM/dd/yyyy HH:mm:ss");
+            //SEND DATA
 
-            //Save non identifying data to Firebase
-        //    var currentUserLogin = new LocationData() { CrowdNow = crowd  };
+            /*var location = "Block 1";
+            var crowd = "20";
+            var currentUserLogin = new LocationData() { CrowdNow = crowd ,Location = location };
             var firebaseClient = new FirebaseClient("https://spaceandscan.firebaseio.com/");
-            //var result = await firebaseClient
-              //.Child("Location/" + location)
-              //.PostAsync(currentUserLogin);
+            var result = await firebaseClient
+            .Child("Location/")
+            .PostAsync(currentUserLogin);*/
+
+            var firebaseClient = new FirebaseClient("https://spaceandscan.firebaseio.com/"); //USE FOR LINKING TO DATABASE
+
+
 
             //Retrieve data from Firebase
             var dbLogins = await firebaseClient
               .Child("Location")
-              .Child(location)
               .OnceAsync<LocationData>();
-            var tempList = new List<string>();
+            var locationList = new List<string>(); //DIFFERENT WAYS OF RETRIEVING DATA
+            var crowdList = new List<string>();
+            var objectList = new List<object>();
             foreach (var login in dbLogins)
             {
-                //ViewBag.Crowd = login.Object.CrowdNow;
-                tempList.Add((login.Object.CrowdNow).ToString());
+                objectList.Add((login.Object));
+                crowdList.Add((login.Object.CrowdNow));
+                locationList.Add((login.Object.Location));
             }
-            //MAYBE SOMEONE CAN FIND ANOTHER WAY TO GET DATA FROM FIREBASE.OBJECT
             //Pass data to the view
-            ViewBag.Location = location;
-            //ViewBag.temp = dbLogins.ToString();    HOW TO CONVERT DIRECTLY??
-            ViewBag.Crowd = tempList;
+            ViewBag.Location = locationList;
+            ViewBag.Crowd = crowdList;
+            ViewBag.Object = objectList;
             return View();
         }
+        
 
 
     }

@@ -2,8 +2,29 @@
 @{
     ViewBag.Title = "ViewMap";
 }
-<h2>View Map</h2>
+<h2>View Table</h2>
 
-<h3>Login History</h3>
-<p>Current user: @ViewBag.Location</p>
-<p> Number of People: @ViewBag.Crowd[0]</p>
+
+
+<ul>
+    @foreach (var location in ViewBag.Location)
+    {
+        <li>Location: @location</li>
+    }
+</ul>
+
+
+<ul>
+    @foreach (var crowd in ViewBag.Crowd)
+    {
+        <li>Crowd: @crowd</li>
+    }
+</ul>
+
+<ul>
+    @foreach (var Object in ViewBag.Object)
+    {
+        <li>Location: @Object.Location</li>
+        <li>Crowd: @Object.CrowdNow</li>
+    }
+</ul>
