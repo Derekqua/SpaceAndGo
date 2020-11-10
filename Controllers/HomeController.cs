@@ -109,8 +109,19 @@ namespace SpaceAndGo.Controllers
             ViewBag.Object = objectList;
             return View();
         }
-        
 
+        public ActionResult AboutUs()
+        {
+            return View();
+        }
+        public ActionResult Counter()
+        {
+            return View();
+        }
+        public ActionResult News()
+        {
+            return View();
+        }
 
     }
 }

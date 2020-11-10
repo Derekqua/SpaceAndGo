@@ -1,82 +1,197 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+<style> 
+    .row{
+        margin:auto
+    }
+    /*rowheader and description*/
+    .rowheader {
+        color: #f5822b;
+        margin-bottom: 30px
+    }
 
-    <!--0 row-->
-    <div class="parallax" style="background-image: linear-gradient(rgba(255,255,255,.6), rgba(255,255,255,.5)), url('../images/h1.jpg'); /* Full height */ height: 100%; /* Create the parallax scrolling effect */ background-attachment: fixed; background-position: center; background-repeat: no-repeat; background-size: cover;padding: 200px 0px 50px 0px">
-        <h1 style="padding-left:50px;font-size:450%;font-weight:700;color:darkorange">We Care</h1>
-        <h1 style="padding-left:50px;font-size:450%;font-weight:700">About Your Health</h1>
-        <br />
-        <h2 style="font-size:large;padding:0px 0px 0px 50px;font-size:150%;font-weight:300">Everyday We Bring Hope and Smile to the Patient We Serve</h2>
+    .rowdescription {
+        width: 80%;
+        margin-bottom: 40px
+    }
+    /*Button*/
+    .button {
+        border: none;
+        background: #404040;
+        color: #ffffff !important;
+        font-weight: 100;
+        padding: 20px;
+        text-transform: uppercase;
+        border-radius: 6px;
+        display: inline-block;
+        transition: all 0.3s ease 0s;
+    }
+
+        .button:hover {
+            color: #404040 !important;
+            font-weight: 700 !important;
+            letter-spacing: 3px;
+            background: none;
+            -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+            -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+            transition: all 0.3s ease 0s;
+        }
+    .parallax {
+        background-image: linear-gradient(rgba(255,255,255,.6), rgba(255,255,255,.5)), url('../images/h1.jpg'); /* Full height */
+        height: 100%; /* Create the parallax scrolling effect */
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        padding: 200px 0px 50px 0px
+    }
+    .header1 {
+        padding-left: 50px;
+        font-size: 450%;
+        font-weight: 700;
+        color: darkorange
+    }
+    .header2 {
+        padding-left: 50px;
+        font-size: 450%;
+        font-weight: 700;
+    }
+    .slogan {
+        padding: 0px 0px 0px 50px;
+        font-size: 150%;
+        font-weight: 300
+    }
+    #row1 {
+        background-color: lightpink;
+        text-align: center;
+    }
+        #row1 h3 {
+            padding-top: 40px
+        }
+        #row1 h4 {
+            padding: 40px 0px 40px;
+            width: 75%;
+            margin: 0 auto; /* center element horizontally */
+        }
+    /*Row 2*/
+    #row2 {
+        background-color: mediumpurple;
+    }
+    .row2image {
+        float: right;
+        width: 40%;
+        padding: 80px 50px 40px 0px
+    }
+    .row2text {
+        padding: 80px 0 40px 100px;
+        float: left;
+        width: 60%
+    }
+    /*Row 3*/
+    #row3 {
+        background-color:turquoise;
+    }
+    .row3image {
+        float: left;
+        width: 40%;
+        padding: 80px 0px 40px 100px
+    }
+    .row3text {
+        padding: 80px 0px 40px 100px;
+        float: right;
+        width: 60%
+    }
+    /*Row 4*/
+    #row4 {
+        background-color: lightblue;
+    }
+    /*row5*/
+    #row5 {
+        background-color: lightgoldenrodyellow;
+    }
+    img {
+        width: 70%; 
+        height: auto;
+    }
+   
+</style>
+
+<!--0 row-->
+<div class="parallax">
+    <h1 class="header1">We Care</h1>
+    <h1 class="header2">About Your Health</h1>
+    <br />
+    <h2 class="slogan">Everyday We Bring Hope and Smile to the Patient We Serve</h2>
+</div>
+
+<!--1st row (Description)-->
+<div class="row" id="row1">
+    <div class="col-sm-12">
+        <h3>Space & Go</h3>
+        <h4>Sleep plays a vital role in good health and well-being throughout your life. Getting enough quality sleep at the right times can help protect your mental health, physical health, quality of life, and safety. ...    Here are some interesting facts about sleep you might not have been aware of....</h4>
     </div>
+</div>
 
-    <!--1st row (Description)-->
-    <div class="row" style="background-color: lightpink;text-align: center;margin:auto">
-        <div class="col-sm-12">
-            <h3 style="padding-top:40px">How much do you know about sleep?</h3>
-            <h4 style="padding:40px 0px 40px">Sleep plays a vital role in good health and well-being throughout your life. Getting enough quality sleep at the right times can help protect your mental health, physical health, quality of life, and safety. ...    Here are some interesting facts about sleep you might not have been aware of....</h4>
+<!--2nd row-->
+<div class="row" id="row2" >
+    <div class="col-sm-12">
+        <div class="row2image">
+            <img src="images/testing.png" alt="testing">
+        </div>
+
+        <div class="row2text">
+            <h1 class="rowheader">What Is Lucid Dreaming?</h1>
+            <h5 class="rowdescription">Having an occasional strange dream isn’t unusual—but sometimes they can border on a nightmare, resulting in stress and lost sleep....</h5>
+            <div class="button"><a target="_blank" href="https://www.sleepfoundation.org/articles/what-lucid-dreaming">Find Out More</a></div>
         </div>
     </div>
+</div>
 
-    <!--2nd row-->
-    <div class="row" style="background-color: mediumpurple;margin: auto">
-        <div class="col-sm-12">
-            <div style="float: right;width: 40%;padding:80px 50px 40px 0px">
-                <img src="images/testing.png" alt="testing" style="width: 70%; height: auto;">
-            </div>
+<!--3rd row-->
+<div class="row" id="row3">
+    <div class="col-sm-12">
+        <div class="row3image">
+            <img src="images/testing.png" alt="testing">
+        </div>
 
-            <div style="padding:80px 0 40px 100px;float:left;width:60%">
-                <h1 style="color: #f5822b;margin-bottom:30px">What Is Lucid Dreaming?</h1>
-                <h5 style="width:80%;margin-bottom:40px">Having an occasional strange dream isn’t unusual—but sometimes they can border on a nightmare, resulting in stress and lost sleep....</h5>
-                <div><a target="_blank" href="https://www.sleepfoundation.org/articles/what-lucid-dreaming">Find Out More</a></div>
-            </div>
+        <div class="row3text">
+            <h1 class="rowheader">What Is Lucid Dreaming?</h1>
+            <h5 class="rowdescription">Having an occasional strange dream isn’t unusual—but sometimes they can border on a nightmare, resulting in stress and lost sleep....</h5>
+            <div class="button"><a target="_blank" href="https://www.sleepfoundation.org/articles/what-lucid-dreaming">Find Out More</a></div>
         </div>
     </div>
+</div>
 
-    <!--3rd row-->
-    <div class="row" style="background-color: turquoise;margin: auto">
-        <div class="col-sm-12">
-            <div style="float: left;width: 40%;padding:80px 0px 40px 100px">
-                <img src="images/testing.png" alt="testing" style="width: 70%; height: auto;">
-            </div>
+<!--4th row-->
+<div class="row" id="row4">
+    <div class="col-sm-12">
+        <div class="row2image">
+            <img src="images/testing.png" alt="testing">
+        </div>
 
-            <div style="padding:80px 0px 40px 100px;float:right;width:60%">
-                <h1 style="color: #f5822b;margin-bottom:30px">What Is Lucid Dreaming?</h1>
-                <h5 style="width:80%;margin-bottom:40px">Having an occasional strange dream isn’t unusual—but sometimes they can border on a nightmare, resulting in stress and lost sleep....</h5>
-                <div><a target="_blank" href="https://www.sleepfoundation.org/articles/what-lucid-dreaming">Find Out More</a></div>
-            </div>
+        <div class="row2text">
+            <h1 class="rowheader">What Is Lucid Dreaming?</h1>
+            <h5 class="rowdescription">Having an occasional strange dream isn’t unusual—but sometimes they can border on a nightmare, resulting in stress and lost sleep....</h5>
+            <div class="button"><a target="_blank" href="https://www.sleepfoundation.org/articles/what-lucid-dreaming">Find Out More</a></div>
         </div>
     </div>
+</div>
 
-    <!--4th row-->
-    <div class="row" style="background-color: lightblue;margin: auto">
-        <div class="col-sm-12">
-            <div style="float: right;width: 40%;padding:80px 50px 40px 0px">
-                <img src="images/testing.png" alt="testing" style="width: 70%; height: auto;">
-            </div>
+<!--5th row-->
+<div class="row" id="row5">
+    <div class="col-sm-12">
+        <div class="row3image">
+            <img src="images/testing.png" alt="testing">
+        </div>
 
-            <div style="padding:80px 0 40px 100px;float:left;width:60%">
-                <h1 style="color: #f5822b;margin-bottom:30px">What Is Lucid Dreaming?</h1>
-                <h5 style="width:80%;margin-bottom:40px">Having an occasional strange dream isn’t unusual—but sometimes they can border on a nightmare, resulting in stress and lost sleep....</h5>
-                <div><a target="_blank" href="https://www.sleepfoundation.org/articles/what-lucid-dreaming">Find Out More</a></div>
-            </div>
+        <div class="row3text">
+            <h1 class="rowheader">What Is Lucid Dreaming?</h1>
+            <h5 class="rowdescription">Having an occasional strange dream isn’t unusual—but sometimes they can border on a nightmare, resulting in stress and lost sleep....</h5>
+            <div class="button"><a target="_blank" href="https://www.sleepfoundation.org/articles/what-lucid-dreaming">Find Out More</a></div>
         </div>
     </div>
-
-    <!--3rd row-->
-    <div class="row" style="background-color: lightgoldenrodyellow;margin: auto">
-        <div class="col-sm-12">
-            <div style="float: left;width: 40%;padding:80px 0px 40px 100px">
-                <img src="images/testing.png" alt="testing" style="width: 70%; height: auto;">
-            </div>
-
-            <div style="padding:80px 0px 40px 100px;float:right;width:60%">
-                <h1 style="color: #f5822b;margin-bottom:30px">What Is Lucid Dreaming?</h1>
-                <h5 style="width:80%;margin-bottom:40px">Having an occasional strange dream isn’t unusual—but sometimes they can border on a nightmare, resulting in stress and lost sleep....</h5>
-                <div><a target="_blank" href="https://www.sleepfoundation.org/articles/what-lucid-dreaming">Find Out More</a></div>
-            </div>
-        </div>
-    </div>
+</div>
 
 
 
