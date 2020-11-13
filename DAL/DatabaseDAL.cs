@@ -16,6 +16,7 @@ namespace SpaceAndGo.DAL
 {
     public class DatabaseDAL
     {
+
         private IConfiguration Configuration { get; }
         private SqlConnection conn;
         //Constructor     
@@ -31,6 +32,15 @@ namespace SpaceAndGo.DAL
             //Instantiate a SqlConnection object with the         
             //Connection String read.          
             conn = new SqlConnection(strConn);   //conn is like the key to database
+        }
+        
+        // Return number of row updated
+        public int UpdateCount(LocationData locationData)
+        {
+            int location = locationData.Location;
+            int crowdNow = locationData.CrowdNow;
+            
+            LocationData result = (from l in Context.Locations
         }
     }
 }
