@@ -40,7 +40,7 @@ namespace SpaceAndGo.DAL
             int location = locationData.Location;
             int crowdNow = locationData.CrowdNow;
             
-            LocationData result = (from l in Context.Locations
+            LocationData result = (from l in Context.LCount
         }
     }
 }
