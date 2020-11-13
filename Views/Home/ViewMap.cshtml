@@ -2,10 +2,28 @@
 @{
     ViewBag.Title = "ViewMap";
 }
+
+<!--Mapapi-->
+
+
+
+<div id="googleMap" style="width:70%;height:400px;margin:0 auto"></div>
+
+<script>
+function myMap() {
+var mapProp= {
+  center:new google.maps.LatLng(51.508742,-0.120850),
+  zoom:5,
+};
+var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+}
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBWYgFvZAzccoucWszWuVUrJKXMmoTDO40&callback=myMap"></script>
+
+
+
 <h2>View Table</h2>
-
-
-
 <ul>
     @foreach (var location in ViewBag.Location)
     {

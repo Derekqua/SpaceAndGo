@@ -1,7 +1,6 @@
-﻿
-@{
+﻿@{
     ViewData["Title"] = "News";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_LayoutNews.cshtml";
 }
 <style>
     .overlay {
@@ -14,7 +13,7 @@
         opacity: 0;
         transition: .5s ease;
         background-color: white;
-        padding:0px 0px 10px 10px
+        padding: 0px 0px 10px 10px
     }
 
     .item:hover .overlay {
@@ -23,8 +22,11 @@
 
     .text {
         color: black;
-        font-size: 20px;
-        text-align:justify
+        font-size: 1.5vw;
+        text-align: justify
+    }
+    .overlay p{
+        font-size: 1vw;
     }
 
     img {
@@ -63,8 +65,10 @@
                 </a>
                 <div class="overlay">
                     <h3 class="text">Europe COVID-19 death toll tops 300,000 as winter looms and infections surge</h3>
-                    <p>Nurses wearing protective masks and suits work in the Intensive Care Unit (ICU) where patients suffering from the coronavirus disease (COVID-19) are treated at 
-                    Victor Provo hospital in Roubaix, France, on Nov 6, 2020. </p>
+                    <p>
+                        Nurses wearing protective masks and suits work in the Intensive Care Unit (ICU) where patients suffering from the coronavirus disease (COVID-19) are treated at
+                        Victor Provo hospital in Roubaix, France, on Nov 6, 2020.
+                    </p>
                 </div>
             </div>
 

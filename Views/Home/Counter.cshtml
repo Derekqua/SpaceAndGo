@@ -4,5 +4,61 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Counter</h1>
+<style>
+    #counter{
+        font-family: Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+        #counter td, #counter th {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        #counter tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        #counter tr:hover {
+            background-color: #ddd;
+        }
+
+        #counter th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #4CAF50;
+            color: white;
+        }
+</style>
+<div class="container" id="counter">
+    <h1>Counter</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>John</td>
+                <td>Doe</td>
+                <td>john@example.com</td>
+            </tr>
+            <tr>
+                <td>Mary</td>
+                <td>Moe</td>
+                <td>mary@example.com</td>
+            </tr>
+            <tr>
+                <td>July</td>
+                <td>Dooley</td>
+                <td>july@example.com</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
 
