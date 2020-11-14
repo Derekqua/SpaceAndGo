@@ -78,15 +78,15 @@ namespace SpaceAndGo.Controllers
         {
             //SEND DATA
 
-            /*var location = "Block 1";
+            var location = "Block 2";
             var crowd = "20";
             var currentUserLogin = new LocationData() { CrowdNow = crowd ,Location = location };
             var firebaseClient = new FirebaseClient("https://spaceandscan.firebaseio.com/");
             var result = await firebaseClient
-            .Child("Location/")
-            .PostAsync(currentUserLogin);*/
+            .Child("Location1/")
+            .PostAsync(currentUserLogin);
 
-            var firebaseClient = new FirebaseClient("https://spaceandscan.firebaseio.com/"); //USE FOR LINKING TO DATABASE
+            //var firebaseClient = new FirebaseClient("https://spaceandscan.firebaseio.com/"); //USE FOR LINKING TO DATABASE
 
 
 
@@ -100,8 +100,8 @@ namespace SpaceAndGo.Controllers
             foreach (var login in dbLogins)
             {
                 objectList.Add((login.Object));
-                crowdList.Add((login.Object.CrowdNow));
-                locationList.Add((login.Object.Location));
+                //crowdList.Add((login.Object.CrowdNow));
+                //locationList.Add((login.Object.Location));
             }
             //Pass data to the view
             ViewBag.Location = locationList;
@@ -114,9 +114,27 @@ namespace SpaceAndGo.Controllers
         {
             return View();
         }
-        public ActionResult Counter()
+        public async Task<ActionResult> Counter()
         {
+            var firebaseClient = new FirebaseClient("https://spaceandscan.firebaseio.com/"); //USE FOR LINKING TO DATABASE
+            
+            //Retrieve data from Firebase
+            var crowddatanow = await firebaseClient
+              .Child("Location")
+              .OnceAsync<LocationData>();
+            var locationList = new List<int>(); //DIFFERENT WAYS OF RETRIEVING DATA
+            var crowdList = new List<int>();
+            var objectList = new List<object>();
+            foreach (var data in crowddatanow)
+            {
+                objectList.Add((data.Object));
+            }
+            //Pass data to the view
+            ViewBag.Location = locationList;
+            ViewBag.Crowd = crowdList;
+            ViewBag.Data = objectList;
             return View();
+
         }
         public ActionResult News()
         {

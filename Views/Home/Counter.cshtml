@@ -42,6 +42,15 @@
                 <th>Email</th>
             </tr>
         </thead>
+        @foreach (var data in ViewBag.Data)
+        {
+            <tbody>
+                <tr>
+                    <td>Location: @data.Location</td>
+                    <td>Crowd: @data.CrowdNow</td>
+                </tr>
+            </tbody>
+        }
         <tbody>
             <tr>
                 <td>John</td>
