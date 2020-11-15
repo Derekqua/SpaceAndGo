@@ -1,9 +1,11 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-<style> 
+<style>
+
     .row{
         margin:auto
+
     }
     /*rowheader and description*/
     .rowheader {
@@ -48,18 +50,18 @@
     }
     .header1 {
         padding-left: 50px;
-        font-size: 450%;
+        font-size: 5rem;
         font-weight: 700;
         color: darkorange
     }
     .header2 {
         padding-left: 50px;
-        font-size: 450%;
+        font-size: 5rem;
         font-weight: 700;
     }
     .slogan {
         padding: 0px 0px 0px 50px;
-        font-size: 150%;
+        font-size: 1.666rem;
         font-weight: 300
     }
     #row1 {
@@ -78,7 +80,7 @@
     #row2 {
         background-color: mediumpurple;
     }
-    .row2image {        
+    .row2image {
         padding: 80px 50px 40px 0px
     }
     .row2text {
@@ -103,10 +105,82 @@
         background-color: lightgoldenrodyellow;
     }
     img {
-        width: 65%; 
+        width: 65%;
         height: auto;
     }
-   
+    .row24 {
+        display: flex;
+        flex-direction: row-reverse;
+    }
+    .row35{
+        display:flex;
+        flex-direction:row
+    }
+
+
+    @@media
+    screen and (max-width: 550px) {
+        [class*="col-"] {
+            width: 100%;
+        }
+        .header1 {
+            font-size: 3rem;
+        }
+
+        .header2 {
+            font-size: 3rem;
+        }
+
+        .slogan {
+            font-size: 1.5rem;
+        }
+        #row1{
+            padding: 0 15px
+        }
+        #row1 h3 {
+            font-size: 2rem
+        }
+        #row1 h4 {
+            width: 100%;
+            font-size: 1.33rem;
+            padding: 20px 0px 40px;
+            text-align:justify
+        }
+
+        .row24 {
+            display: block;
+            padding: 20px;
+            margin: 0 auto
+        }
+        .row35{
+            display:block;
+            padding:20px;
+        }
+
+        .col-sm-7 {
+            padding: 0px
+        }
+        .col-sm-5{
+            padding:0px
+        }
+        img {
+            display: block;
+            margin: 0 auto;
+            width:60%
+        
+        }
+        /*rowheader and description*/
+        .rowheader {
+            font-size: 2rem;
+        }
+
+        .rowdescription {
+            font-size: 1.33rem;
+            width:100%;
+            text-align:justify
+        }
+    }
+
 </style>
 
 <!--0 row-->
@@ -119,7 +193,7 @@
 
 <!--1st row (Description)-->
 <div class="row" id="row1">
-    <div class="col-sm-12">
+    <div>
         <h3>Space & Go</h3>
         <h4>Sleep plays a vital role in good health and well-being throughout your life. Getting enough quality sleep at the right times can help protect your mental health, physical health, quality of life, and safety. ...    Here are some interesting facts about sleep you might not have been aware of....</h4>
     </div>
@@ -127,7 +201,7 @@
 
 <!--2nd row-->
 <div class="row" id="row2" >
-    <div class="col-sm-12" style="display: flex; flex-direction: row-reverse;">
+    <div class="row24">
         <div class="row2image col-sm-5">
             <img src="images/testing.png" alt="testing">
         </div>
@@ -142,7 +216,7 @@
 
 <!--3rd row-->
 <div class="row" id="row3">
-    <div class="col-sm-12" style="display: flex; flex-direction: row;">
+    <div class="row35">
         <div class="row3image col-sm-5">
             <img src="images/testing.png" alt="testing">
         </div>
@@ -157,7 +231,7 @@
 
 <!--4th row-->
 <div class="row" id="row4">
-    <div class="col-sm-12" style="display: flex; flex-direction: row-reverse;">
+    <div class="row24">
         <div class="row2image col-sm-5">
             <img src="images/testing.png" alt="testing">
         </div>
@@ -172,7 +246,7 @@
 
 <!--5th row-->
 <div class="row" id="row5">
-    <div class="col-sm-12" style="display: flex; flex-direction: row;">
+    <div class="row35">
         <div class="row3image col-sm-5">
             <img src="images/testing.png" alt="testing">
         </div>

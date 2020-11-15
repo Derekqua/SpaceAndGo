@@ -51,26 +51,50 @@
         height: auto;
         border-radius: 50%
     }
+
+    @@media screen and (max-width:575px) {
+        [class*="col-"] {
+            width: 100%;
+        }
+        #row1 h4 {
+            text-align:justify
+        }
+        #members {
+            flex-direction: column;
+        }
+        img{
+            width: 45%
+        }
+        #row2 h6 {
+            font-size: 1.33rem;
+            text-align:justify;
+            padding:15px
+        }
+        #nextmemberrow{
+            flex-direction:column
+        }
+
+    }
 </style>
 
 <!--1st row (Description)-->
 <div class="row" id="row1">
-    <div class="col-sm-12">
+    <div>
         <h3>Our Mission</h3>
         <h4>Sleep plays a vital role in good health and well-being throughout your life. Getting enough quality sleep at the right times can help protect your mental health, physical health, quality of life, and safety. ...    Here are some interesting facts about sleep you might not have been aware of....</h4>
     </div>
-    <div class="col-sm-12">
+    <div>
         <h3>Our Goals</h3>
         <h4>Sleep plays a vital role in good health and well-being throughout your life. Getting enough quality sleep at the right times can help protect your mental health, physical health, quality of life, and safety. ...    Here are some interesting facts about sleep you might not have been aware of....</h4>
     </div>
-    <div class="col-sm-12">
+    <div>
         <h3>What We Aim To Accomplish</h3>
         <h4>Sleep plays a vital role in good health and well-being throughout your life. Getting enough quality sleep at the right times can help protect your mental health, physical health, quality of life, and safety. ...    Here are some interesting facts about sleep you might not have been aware of....</h4>
     </div>
 </div>
 <div class="row" id="row2">
     <h3 class="row2head">Our Members</h3>
-    <div class="col-sm-12" id="members">
+    <div id="members">
         <div class="col-sm-4">
             <img src="~/images/Derek.jpg" alt="Derek">
             <h4>Derek Qua</h4>
@@ -90,7 +114,7 @@
             <h6>Sleep plays a vital role in good health and well-being throughout your life. Getting enough quality sleep at the right times can help protect your mental health, physical health, quality of life, and safety. ...    Here are some interesting facts about sleep you might not have been aware of....</h6>
         </div>
     </div>
-    <div class="col-sm-12" id="nextmemberrow">
+    <div id="nextmemberrow">
         <div class="col-sm-4">
             <img src="~/images/Derek.jpg" alt="Derek">
             <h4>Derek Qua</h4>

@@ -22,11 +22,11 @@
 
     .text {
         color: black;
-        font-size: 1.5vw;
+        font-size: 2rem;
         text-align: justify
     }
     .overlay p{
-        font-size: 1vw;
+        font-size: 1.5rem;
     }
 
     img {
@@ -52,10 +52,37 @@
         flex-direction: row;
         justify-content: center
     }
+    #carousel {
+        width: 70%;
+        height: auto
+    }
+
+    @@media screen and (max-width: 768px) {
+        [class*="col-"] {
+            width: 100%;
+        }
+        .text {
+            font-size: 1.5rem;
+        }
+
+        .overlay p {
+           display: none
+        }
+        #carousel{
+            width:100%
+        }
+        .newsbox {
+            flex-direction: column;
+        }
+        .boxes {
+            width: 100%;
+            margin: 30px 0px 20px;
+        }
+    }
 </style>
 
 
-<div class="container-fluid" style="width:70%;height:auto">
+<div class="container-fluid" id="carousel">
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
         <!-- Wrapper for slides -->
         <div class="carousel-inner">
