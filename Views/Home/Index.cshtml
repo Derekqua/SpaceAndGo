@@ -200,8 +200,8 @@
 
 <!--0 row-->
 <div class="parallax">
-    <h1 class="header1 animate__animated animate__slideInLeft">We Care</h1>
-    <h1 class="header2 animate__animated animate__slideInLeft">About Your Health</h1>
+    <h1 class="header1 animate__animated animate__slideInLeft wow">We Care</h1>
+    <h1 class="header2 animate__animated animate__slideInLeft wow">About Your Health</h1>
     <br />
     <h2 class="slogan">Everyday We Bring Hope and Smile to the Patient We Serve</h2>
 </div>
@@ -221,7 +221,7 @@
             <img src="images/testing.png" alt="testing">
         </div>
 
-        <div class="row2text col-sm-7">
+        <div class="row2text col-sm-7 animate__animated animate__fadeInLeft wow" data-wow-duration="2s">
             <h1 class="rowheader">Heatmap</h1>
             <h5 class="rowdescription">Trying to find out the least crowded places to chill or eat? Here you can find out the latest information of the number of people in a vicinity</h5>
             <div class="button"><a target="_blank" href="Home/ViewMap">Let's Trace!</a></div>
@@ -236,7 +236,7 @@
             <img src="images/testing.png" alt="testing">
         </div>
 
-        <div class="row3text col-sm-7">
+        <div class="row3text col-sm-7 animate__animated animate__fadeInRight wow" data-wow-duration="2s">
             <h1 class="rowheader">News</h1>
             <h5 class="rowdescription">Interested to know about the latest news of COVID-19? Click here to find out the latest news on COVID in Singapore!</h5>
             <div class="button"><a target="_blank" href="Home/News">Find Out More!</a></div>
@@ -251,10 +251,23 @@
             <img src="images/testing.png" alt="testing">
         </div>
 
-        <div class="row2text col-sm-7">
+        <div class="row2text col-sm-7 animate__animated animate__fadeInLeft wow" data-wow-duration="2s">
             <h1 class="rowheader">About Us</h1>
             <h5 class="rowdescription">Here you can find out more about our team members as well as our mission, goals and what we aim to accomplish in this project.</h5>
             <div class="button"><a target="_blank" href="Home/AboutUs">Find out about us!</a></div>
         </div>
     </div>
 </div>
+
+<script>
+    wow = new WOW(
+        {
+            boxClass: 'wow',      // default
+            animateClass: 'animated', // default
+            offset: 0,          // default
+            mobile: true,       // default
+            live: true        // default
+        }
+    )
+    wow.init();
+</script>
