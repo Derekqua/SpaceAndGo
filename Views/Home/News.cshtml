@@ -32,12 +32,14 @@
     img {
         display: block;
         width: 100%;
-        height: auto
+        height: auto;
     }
 
     .description {
         background-color: white;
-        padding: 0 20px
+        padding: 0 20px;
+        border-bottom-left-radius: 25px;
+        border-bottom-right-radius: 25px
     }
 
     .boxes {
@@ -45,12 +47,17 @@
         width: 20%;
         height: 40%;
         margin: 30px 50px 20px;
+        border-radius:25px
     }
 
     .newsbox {
         display: flex;
         flex-direction: row;
         justify-content: center
+    }
+    .newsimage {
+        border-top-left-radius: 25px;
+        border-top-right-radius: 25px
     }
     #carousel {
         width: 70%;
@@ -64,7 +71,9 @@
         .text {
             font-size: 1.5rem;
         }
-
+        .overlay {
+            opacity: 1
+        }
         .overlay p {
            display: none
         }
@@ -136,7 +145,7 @@
 <div class="container-fluid newsbox">
     <div class="row boxes">
         <a href="https://www.channelnewsasia.com/news/world/europe-covid-19-death-toll-tops-300-000-as-winter-looms-and-13512472" target="_blank" style="text-decoration: none; color: black">
-            <img src="~/images/EuropeCOVID19.jpg" alt="Europe">
+            <img src="~/images/EuropeCOVID19.jpg" alt="Europe" class="newsimage">
             <div class="description">
                 <h3>why sleep is important?</h3>
                 <p>adshfadskfa adfadsfa adfadfa adfads fadsf adsf adsf adsf adsf dasf adsf adsf adsf adsf dsaf ads fads fads ffads afds sdfdsfds sfds fdsfds fdsf dsfds fsdf sdfds fsdf  fsd</p>
@@ -146,7 +155,7 @@
 
     <div class="row boxes">
         <a href="https://www.channelnewsasia.com/news/world/europe-covid-19-death-toll-tops-300-000-as-winter-looms-and-13512472" target="_blank" style="text-decoration: none; color: black">
-            <img src="~/images/EuropeCOVID19.jpg" alt="Europe">
+            <img src="~/images/EuropeCOVID19.jpg" alt="Europe" class="newsimage">
             <div class="description">
                 <h3>why sleep is important?</h3>
                 <p>adshfadskfa adfadsfa adfadfa adfads fadsf adsf adsf adsf adsf dasf adsf adsf adsf adsf dsaf ads fads fads ffads afds sdfdsfds sfds fdsfds fdsf dsfds fsdf sdfds fsdf  fsd</p>
@@ -156,7 +165,7 @@
 
     <div class="row boxes">
         <a href="https://www.channelnewsasia.com/news/world/europe-covid-19-death-toll-tops-300-000-as-winter-looms-and-13512472" target="_blank" style="text-decoration: none; color: black">
-            <img src="~/images/EuropeCOVID19.jpg" alt="Europe">
+            <img src="~/images/EuropeCOVID19.jpg" alt="Europe" class="newsimage">
             <div class="description">
                 <h3>why sleep is important?</h3>
                 <p>adshfadskfa adfadsfa adfadfa adfads fadsf adsf adsf adsf adsf dasf adsf adsf adsf adsf dsaf ads fads fads ffads afds sdfdsfds sfds fdsfds fdsf dsfds fsdf sdfds fsdf  fsd</p>
