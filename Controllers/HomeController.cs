@@ -78,15 +78,15 @@ namespace SpaceAndGo.Controllers
         {
             //SEND DATA
 
-            var location = "Block 2";
+            /*var location = "Block 2";
             var crowd = 20;
             var currentUserLogin = new LocationData() { CrowdNow = crowd ,Location = location };
             var firebaseClient = new FirebaseClient("https://spaceandscan.firebaseio.com/");
             var result = await firebaseClient
             .Child("Location1/")
-            .PostAsync(currentUserLogin);
+            .PostAsync(currentUserLogin);*/
 
-            //var firebaseClient = new FirebaseClient("https://spaceandscan.firebaseio.com/"); //USE FOR LINKING TO DATABASE
+            var firebaseClient = new FirebaseClient("https://spaceandscan.firebaseio.com/"); //USE FOR LINKING TO DATABASE
 
 
 
