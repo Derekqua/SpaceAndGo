@@ -79,7 +79,7 @@ namespace SpaceAndGo.Controllers
             //SEND DATA
 
             var location = "Block 2";
-            var crowd = "20";
+            var crowd = 20;
             var currentUserLogin = new LocationData() { CrowdNow = crowd ,Location = location };
             var firebaseClient = new FirebaseClient("https://spaceandscan.firebaseio.com/");
             var result = await firebaseClient
@@ -94,7 +94,7 @@ namespace SpaceAndGo.Controllers
             var dbLogins = await firebaseClient
               .Child("Location")
               .OnceAsync<LocationData>();
-            var locationList = new List<int>(); //DIFFERENT WAYS OF RETRIEVING DATA
+            var locationList = new List<string>(); //DIFFERENT WAYS OF RETRIEVING DATA
             var crowdList = new List<int>();
             var objectList = new List<object>();
             foreach (var login in dbLogins)
