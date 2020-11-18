@@ -8,8 +8,8 @@ namespace SpaceAndGo.Models
     //public class DataContext : IDisposable
     public /*partial*/ class LocationData //: DataContext
     {
-        public string Location { get; set; }
-        public string CrowdNow { get; set; }
+        public string Location { get; set; } //LName in SQL database
+        public int CrowdNow { get; set; }
 
         /*public Table<Locations> Locations;
         public Table<LCount> LCount;
