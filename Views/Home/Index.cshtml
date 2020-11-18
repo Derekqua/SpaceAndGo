@@ -2,10 +2,8 @@
     ViewData["Title"] = "Home Page";
 }
 <style>
-
-    .row{
-        margin:auto
-
+    .row {
+        margin: auto
     }
     /*rowheader and description*/
     .rowheader {
@@ -39,6 +37,7 @@
             -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
             transition: all 0.3s ease 0s;
         }
+
     .parallax {
         background-image: linear-gradient(rgba(255,255,255,.6), rgba(255,255,255,.5)), url('../images/h1.jpg'); /* Full height */
         height: 100%; /* Create the parallax scrolling effect */
@@ -48,29 +47,35 @@
         background-size: cover;
         padding: 200px 0px 50px 0px
     }
+
     .header1 {
         padding-left: 50px;
         font-size: 5rem;
         font-weight: 700;
         color: darkorange
     }
+
     .header2 {
         padding-left: 50px;
         font-size: 5rem;
         font-weight: 700;
     }
+
     .slogan {
         padding: 0px 0px 0px 50px;
         font-size: 1.666rem;
         font-weight: 300
     }
+
     #row1 {
         background-color: lightpink;
         text-align: center;
     }
+
         #row1 h3 {
             padding-top: 40px
         }
+
         #row1 h4 {
             padding: 40px 0px 40px;
             width: 75%;
@@ -80,19 +85,23 @@
     #row2 {
         background-color: mediumpurple;
     }
+
     .row2image {
         padding: 80px 50px 40px 0px
     }
+
     .row2text {
         padding: 80px 0 40px 50px;
     }
     /*Row 3*/
     #row3 {
-        background-color:turquoise;
+        background-color: turquoise;
     }
+
     .row3image {
         padding: 80px 0px 40px 50px
     }
+
     .row3text {
         padding: 80px 50px 40px 0px;
     }
@@ -105,21 +114,22 @@
         width: 65%;
         height: auto;
     }
+
     .row24 {
         display: flex;
         flex-direction: row-reverse;
     }
-    .row35{
-        display:flex;
-        flex-direction:row
+
+    .row35 {
+        display: flex;
+        flex-direction: row
     }
 
-
-    @@media
-    screen and (max-width: 550px) {
+    @@media screen and (max-width: 550px) {
         [class*="col-"] {
             width: 100%;
         }
+
         .header1 {
             font-size: 3rem;
         }
@@ -131,40 +141,45 @@
         .slogan {
             font-size: 1.5rem;
         }
-        #row1{
+
+        #row1 {
             padding: 0 15px
         }
-        #row1 h3 {
-            font-size: 2rem
-        }
-        #row1 h4 {
-            width: 100%;
-            font-size: 1.33rem;
-            padding: 20px 0px 40px;
-            text-align:justify
-        }
+
+            #row1 h3 {
+                font-size: 2rem
+            }
+
+            #row1 h4 {
+                width: 100%;
+                font-size: 1.33rem;
+                padding: 20px 0px 40px;
+                text-align: justify
+            }
 
         .row24 {
             display: block;
             padding: 20px;
             margin: 0 auto
         }
-        .row35{
-            display:block;
-            padding:20px;
+
+        .row35 {
+            display: block;
+            padding: 20px;
         }
 
         .col-sm-7 {
             padding: 0px
         }
-        .col-sm-5{
-            padding:0px
+
+        .col-sm-5 {
+            padding: 0px
         }
+
         img {
             display: block;
             margin: 0 auto;
-            width:60%
-        
+            width: 60%
         }
         /*rowheader and description*/
         .rowheader {
@@ -173,17 +188,16 @@
 
         .rowdescription {
             font-size: 1.33rem;
-            width:100%;
-            text-align:justify
+            width: 100%;
+            text-align: justify
         }
     }
-
 </style>
 
 <!--0 row-->
 <div class="parallax">
-    <h1 class="header1">We Care</h1>
-    <h1 class="header2">About Your Health</h1>
+    <h1 class="header1 animate__animated animate__slideInLeft">We Care</h1>
+    <h1 class="header2 animate__animated animate__slideInLeft">About Your Health</h1>
     <br />
     <h2 class="slogan">Everyday We Bring Hope and Smile to the Patient We Serve</h2>
 </div>
@@ -197,7 +211,7 @@
 </div>
 
 <!--2nd row-->
-<div class="row" id="row2" >
+<div class="row" id="row2">
     <div class="row24">
         <div class="row2image col-sm-5">
             <img src="images/testing.png" alt="testing">
@@ -240,7 +254,3 @@
         </div>
     </div>
 </div>
-
-
-
-
