@@ -48,7 +48,7 @@ namespace SpaceAndGo.Controllers
 
             //Save non identifying data to Firebase
             var currentUserLogin = new LoginData() { TimestampUtc = currentLoginTime };
-            var firebaseClient = new FirebaseClient("https://spaceandscan.firebaseio.com/");
+            var firebaseClient = new FirebaseClient("https://spaceandgo-938a9.firebaseio.com/");
             var result = await firebaseClient
               .Child("Users/" + userId + "/Logins")
               .PostAsync(currentUserLogin);
@@ -86,7 +86,7 @@ namespace SpaceAndGo.Controllers
             .Child("Location1/")
             .PostAsync(currentUserLogin);*/
 
-            var firebaseClient = new FirebaseClient("https://spaceandscan.firebaseio.com/"); //USE FOR LINKING TO DATABASE
+            var firebaseClient = new FirebaseClient("https://spaceandgo-938a9.firebaseio.com/"); //USE FOR LINKING TO DATABASE
 
 
 
@@ -116,7 +116,7 @@ namespace SpaceAndGo.Controllers
         }
         public async Task<ActionResult> Counter()
         {
-            var firebaseClient = new FirebaseClient("https://spaceandscan.firebaseio.com/"); //USE FOR LINKING TO DATABASE
+            var firebaseClient = new FirebaseClient("https://spaceandgo-938a9.firebaseio.com/"); //USE FOR LINKING TO DATABASE
             
             //Retrieve data from Firebase
             var crowddatanow = await firebaseClient
