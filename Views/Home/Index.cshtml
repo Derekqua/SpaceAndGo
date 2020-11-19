@@ -17,30 +17,19 @@
     }
     /*Button*/
     .button {
-        border: none;
-        background: #404040;
-        color: #ffffff !important;
+        border: solid;
+        border-color:white;
         font-weight: 100;
         padding: 20px;
         text-transform: uppercase;
         border-radius: 6px;
         display: inline-block;
         transition: all 0.3s ease 0s;
-    }
+    } 
 
         .button:hover {
-            color: #404040 !important;
-            font-weight: 700 !important;
-            letter-spacing: 3px;
-            background: none;
-            -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
-            -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
-            transition: all 0.3s ease 0s;
+            transform: scale(1.2)
         }
-    a {
-        color: white;
-    }
-    /* CSS link color */
 
     .parallax {
         background-image: url('../images/space&goBackground.jpg'); /* Full height */
@@ -57,8 +46,8 @@
     }
 
     #row1 {
-        background-color: lightpink;
         text-align: center;
+        color:white
     }
 
         #row1 h3 {
@@ -70,10 +59,6 @@
             width: 75%;
             margin: 0 auto; /* center element horizontally */
         }
-    /*Row 2*/
-    #row2 {
-        background-color: mediumpurple;
-    }
 
     .row2image {
         padding: 80px 50px 40px 0px
@@ -81,10 +66,7 @@
 
     .row2text {
         padding: 80px 0 40px 50px;
-    }
-    /*Row 3*/
-    #row3 {
-        background-color: turquoise;
+        color:white
     }
 
     .row3image {
@@ -93,10 +75,7 @@
 
     .row3text {
         padding: 80px 50px 40px 0px;
-    }
-    /*Row 4*/
-    #row4 {
-        background-color: lightblue;
+        color:white
     }
 
     img {
@@ -171,68 +150,73 @@
             width: 100%;
             text-align: justify
         }
+        .parallax {
+            background-image: url('../images/space&go2mobile.jpg'); /* Full height */
+        }
     }
 </style>
 
 <!--0 row-->
 <div class="parallax">
-    <img src="images/SpaceGoLogo.jpg"class="animate__animated animate__slideInDown wow" alt="Logo" style="height:25%;width:30%;margin:0 auto;display:block;border-top-left-radius:50px;border-top-right-radius:50px">
+    <img src="images/SpaceGoLogoTransparent.png"class="animate__animated animate__slideInDown wow" alt="Logo" style="height:25%;width:30%;margin:0 auto;display:block;border-top-left-radius:50px;border-top-right-radius:50px">
     <br />
     <h2 class="slogan animate__animated animate__slideInDown wow">Space efficienty, go the distance!</h2>
 </div>
+<div style="background-image: url(../images/spaceBackground.jpg);">
+    <!--1st row (Description)-->
+    <div class="row" id="row1">
+        <div>
+            <h3>Space & Go</h3>
+            <h4>We are a team of Ngee Ann Polytechnic students that are attempting to solve the problem of being unable to count the number of people in the vicinity as well as helping users to identify what are the most highly populated areas.</h4>
+        </div>
+    </div>
 
-<!--1st row (Description)-->
-<div class="row" id="row1">
-    <div>
-        <h3>Space & Go</h3>
-        <h4>We are a team of Ngee Ann Polytechnic students that are attempting to solve the problem of being unable to count the number of people in the vicinity as well as helping users to identify what are the most highly populated areas.</h4>
+    <!--2nd row-->
+    <div class="row" id="row2">
+        <div class="row24">
+            <div class="row2image col-sm-5">
+                <img src="images/map.png" alt="heatmap">
+            </div>
+
+            <div class="row2text col-sm-7 animate__animated animate__fadeInLeft wow" data-wow-duration="2s">
+                <h1 class="rowheader">Heatmap</h1>
+                <h5 class="rowdescription">Trying to find out the least crowded places to chill or eat? Here you can find out the latest information of the number of people in a vicinity</h5>
+                <div class="button"><a target="_blank" href="Home/ViewMap" style="text-decoration:none;color:white">Let's Trace!</a></div>
+            </div>
+        </div>
+    </div>
+
+    <!--3rd row-->
+    <div class="row" id="row3">
+        <div class="row35">
+            <div class="row3image col-sm-5">
+                <img src="images/newspaper.svg" alt="news icon">
+            </div>
+
+            <div class="row3text col-sm-7 animate__animated animate__fadeInRight wow" data-wow-duration="2s">
+                <h1 class="rowheader">News</h1>
+                <h5 class="rowdescription">Interested to know about the latest news of COVID-19? Click here to find out the latest news on COVID in Singapore!</h5>
+                <div class="button"><a target="_blank" href="Home/News" style="text-decoration:none;color:white">Stay Updated!</a></div>
+            </div>
+        </div>
+    </div>
+
+    <!--4th row-->
+    <div class="row" id="row4">
+        <div class="row24">
+            <div class="row2image col-sm-5">
+                <img src="images/team.png" alt="team">
+            </div>
+
+            <div class="row2text col-sm-7 animate__animated animate__fadeInLeft wow" data-wow-duration="2s">
+                <h1 class="rowheader">About Us</h1>
+                <h5 class="rowdescription">Curious about who is our development team? Here you can find out more about our team members as well as our mission, goals and what we aim to accomplish in this project.</h5>
+                <div class="button"><a target="_blank" href="Home/AboutUs" style="text-decoration:none;color:white">Find out about us!</a></div>
+            </div>
+        </div>
     </div>
 </div>
 
-<!--2nd row-->
-<div class="row" id="row2">
-    <div class="row24">
-        <div class="row2image col-sm-5">
-            <img src="images/map.png" alt="heatmap">
-        </div>
-
-        <div class="row2text col-sm-7 animate__animated animate__fadeInLeft wow" data-wow-duration="2s">
-            <h1 class="rowheader">Heatmap</h1>
-            <h5 class="rowdescription">Trying to find out the least crowded places to chill or eat? Here you can find out the latest information of the number of people in a vicinity</h5>
-            <div class="button"><a target="_blank" href="Home/ViewMap">Let's Trace!</a></div>
-        </div>
-    </div>
-</div>
-
-<!--3rd row-->
-<div class="row" id="row3">
-    <div class="row35">
-        <div class="row3image col-sm-5">
-            <img src="images/newspaper.svg" alt="news icon">
-        </div>
-
-        <div class="row3text col-sm-7 animate__animated animate__fadeInRight wow" data-wow-duration="2s">
-            <h1 class="rowheader">News</h1>
-            <h5 class="rowdescription">Interested to know about the latest news of COVID-19? Click here to find out the latest news on COVID in Singapore!</h5>
-            <div class="button"><a target="_blank" href="Home/News">Stay Updated!</a></div>
-        </div>
-    </div>
-</div>
-
-<!--4th row-->
-<div class="row" id="row4">
-    <div class="row24">
-        <div class="row2image col-sm-5">
-            <img src="images/team.png" alt="team">
-        </div>
-
-        <div class="row2text col-sm-7 animate__animated animate__fadeInLeft wow" data-wow-duration="2s">
-            <h1 class="rowheader">About Us</h1>
-            <h5 class="rowdescription">Curious about who is our development team? Here you can find out more about our team members as well as our mission, goals and what we aim to accomplish in this project.</h5>
-            <div class="button"><a target="_blank" href="Home/AboutUs">Find out about us!</a></div>
-        </div>
-    </div>
-</div>
 
 <script>
     wow = new WOW(
