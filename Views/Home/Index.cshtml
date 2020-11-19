@@ -37,35 +37,23 @@
             -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
             transition: all 0.3s ease 0s;
         }
+    a {
+        color: white;
+    }
+    /* CSS link color */
 
     .parallax {
-        background-image: linear-gradient(rgba(255,255,255,.6), rgba(255,255,255,.5)), url('../images/backdrop.png'); /* Full height */
-        height: 100%; /* Create the parallax scrolling effect */
-        background-attachment: fixed;
+        background-image: url('../images/space&goBackground.jpg'); /* Full height */
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
         padding: 200px 0px 50px 0px
     }
 
-    .header1 {
-        padding-left: 50px;
-        font-size: 5rem;
-        font-weight: 700;
-        color: cyan;
-        text-shadow: 5px 5px black;
-    }
-
-    .header2 {
-        padding-left: 50px;
-        font-size: 5rem;
-        font-weight: 700;
-    }
-
     .slogan {
-        padding: 0px 0px 0px 50px;
         font-size: 1.666rem;
-        font-weight: 300
+        font-weight: 300;
+        text-align:center
     }
 
     #row1 {
@@ -130,15 +118,6 @@
         [class*="col-"] {
             width: 100%;
         }
-
-        .header1 {
-            font-size: 3rem;
-        }
-
-        .header2 {
-            font-size: 3rem;
-        }
-
         .slogan {
             font-size: 1.5rem;
         }
@@ -197,9 +176,9 @@
 
 <!--0 row-->
 <div class="parallax">
-    <h1 class="header1 animate__animated animate__slideInLeft wow">Space & Go</h1>
+    <img src="images/SpaceGoLogo.jpg"class="animate__animated animate__slideInDown wow" alt="Logo" style="height:25%;width:30%;margin:0 auto;display:block;border-top-left-radius:50px;border-top-right-radius:50px">
     <br />
-    <h2 class="slogan">Space together, go the distance!</h2>
+    <h2 class="slogan animate__animated animate__slideInDown wow">Space efficienty, go the distance!</h2>
 </div>
 
 <!--1st row (Description)-->
@@ -214,7 +193,7 @@
 <div class="row" id="row2">
     <div class="row24">
         <div class="row2image col-sm-5">
-            <img src="images/fire.png" alt="heatmap fire">
+            <img src="images/map.png" alt="heatmap">
         </div>
 
         <div class="row2text col-sm-7 animate__animated animate__fadeInLeft wow" data-wow-duration="2s">
@@ -229,7 +208,7 @@
 <div class="row" id="row3">
     <div class="row35">
         <div class="row3image col-sm-5">
-            <img src="images/newsicon.png" alt="news icon">
+            <img src="images/newspaper.svg" alt="news icon">
         </div>
 
         <div class="row3text col-sm-7 animate__animated animate__fadeInRight wow" data-wow-duration="2s">
