@@ -8,6 +8,9 @@ using Microsoft.Extensions.Logging;
 using SpaceAndGo.Models;
 using Firebase.Database;
 using Firebase.Database.Query;
+using System.Net.Http;
+using Microsoft.AspNetCore.Http;
+using Newtonsoft.Json;
 
 namespace SpaceAndGo.Controllers
 {
@@ -136,9 +139,30 @@ namespace SpaceAndGo.Controllers
             return View();
 
         }
-        public ActionResult News()
+        public async Task<ActionResult> News()
         {
-            return View();
+            var client = new HttpClient();
+            var request = new HttpRequestMessage
+            {
+                Method = HttpMethod.Get,
+                RequestUri = new Uri("https://covid-19-news.p.rapidapi.com/v1/covid?q=covid&lang=en&media=True"),
+                Headers =
+                {
+                    { "x-rapidapi-key", "c947943dd5mshd3da70c50ce7bb9p175bd6jsndb5705073769" },
+                    { "x-rapidapi-host", "covid-19-news.p.rapidapi.com" },
+                },
+            };
+            
+            using (var response = await client.SendAsync(request))
+            {
+                response.EnsureSuccessStatusCode();
+                var body = await response.Content.ReadAsStringAsync();
+                Rootobject rootdata = JsonConvert.DeserializeObject<Rootobject>(body);
+                Article[] articles = rootdata.articles;
+                return View(articles);
+
+            }
+            
         }
 
     }
