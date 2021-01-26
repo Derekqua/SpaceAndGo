@@ -159,6 +159,8 @@ namespace SpaceAndGo.Controllers
                 var body = await response.Content.ReadAsStringAsync();
                 Rootobject rootdata = JsonConvert.DeserializeObject<Rootobject>(body);
                 Article[] articles = rootdata.articles;
+
+                
                 return View(articles);
 
             }
