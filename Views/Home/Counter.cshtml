@@ -5,11 +5,22 @@
 }
 
 <style>
-    #counter{
+    #myInput {
+        background-image: url('/images/magnifying-glass.png'); /* Add a search icon to input */
+        background-position: 10px 10px; /* Position the search icon */
+        background-repeat: no-repeat; /* Do not repeat the icon image */
+        width: 100%; /* Full-width */
+        font-size: 16px; /* Increase font-size */
+        padding: 12px 20px 12px 40px; /* Add some padding */
+        border: 1px solid #ddd; /* Add a grey border */
+        margin-bottom: 12px; /* Add some space below the input */
+    }
+
+    #counter {
         font-family: Arial, Helvetica, sans-serif;
         border-collapse: collapse;
-        height:400px;
-        overflow:scroll
+        height: 400px;
+        overflow: scroll
     }
 
         #counter td, #counter th {
@@ -31,29 +42,97 @@
             text-align: left;
             background-color: #4CAF50;
             color: white;
-            position:sticky;
-            top:0
+            position: sticky;
+            top: 0
         }
-
-
 </style>
 <div class="container" id="counter">
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Location</th>
-                <th>Crowd</th>
-            </tr>
-        </thead>
-        @foreach (var data in ViewBag.Data)
-        {
-            <tbody>
-                <tr>
-                    <td>@data.Location</td>
-                    <td>@data.CrowdNow</td>
-                </tr>
-            </tbody>
-        }
+    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names..">
+    <table class="table" id="myTable">
     </table>
 </div>
+
+
+<script>
+    //searching 
+    function myFunction() {
+        // Declare variables
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("myTable");
+        tr = table.getElementsByTagName("tr");
+
+        // Loop through all table rows, and hide those who don't match the search query
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[0];
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    }
+
+    //row selected
+    function addRowHandlers() {
+        var table = document.getElementById("myTable");
+        var rows = table.getElementsByTagName("tr");
+        for (i = 0; i < rows.length; i++) {
+            var currentRow = table.rows[i];
+            var createClickHandler =
+                function (row) {
+                    return function () {
+                        var cell = row.getElementsByTagName("td")[0];
+                        var id = cell.innerHTML;
+                        alert("id:" + id);
+                    };
+                };
+
+            currentRow.onclick = createClickHandler(currentRow);
+        }
+    }
+    window.onload = addRowHandlers();
+
+
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+
+    var firebaseConfig = {
+        apiKey: "AIzaSyAPdIhX-nw2qkkvid6-OH_Jo-uq5G8_Kxk",
+        authDomain: "spaceandgo-938a9.firebaseapp.com",
+        databaseURL: "https://spaceandgo-938a9.firebaseio.com",
+        projectId: "spaceandgo-938a9",
+        storageBucket: "spaceandgo-938a9.appspot.com",
+        messagingSenderId: "600285550516",
+        appId: "1:600285550516:web:1ee36fcf3b43596493c4e1",
+        measurementId: "G-KD055R0TCC"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+
+    var database = firebase.database();
+    database.ref('Location').on('value', function (snapshot) {
+        if (snapshot.exists()) {
+            var content = '<thead><tr><th>Location</th><th>Crowd</th></tr></thead>';
+            snapshot.forEach(function (data) {
+                var val = data.val();                
+                content += '<tr>';
+                content += '<td>' + val.Location + '</td>';
+                content += '<td>' + val.CrowdNow + '</td>';
+                content += '</tr>';
+            });
+            $('#myTable').html(content);
+            addRowHandlers()
+        }
+    });
+</script>
+
+
+
+
 
