@@ -195,7 +195,7 @@ namespace SpaceAndGo.Controllers
             return View();
         }
 
-        [HttpPost]
+        /*[HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Email(Form email)
         {
@@ -269,7 +269,7 @@ namespace SpaceAndGo.Controllers
                 return View(email);
             }
         }
-
+        */
         public static void Start()
         {
             IScheduler scheduler = (IScheduler)StdSchedulerFactory.GetDefaultScheduler();

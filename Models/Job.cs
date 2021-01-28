@@ -5,7 +5,11 @@ using System.Web;
 using Quartz;
 using System.Net;
 using System.Net.Mail;
-
+using SpaceAndGo.Models;
+using System.Net.Http;
+using Newtonsoft.Json;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
 
 namespace ScheduledTask.Models
 {
@@ -13,7 +17,7 @@ namespace ScheduledTask.Models
     {
         public void Execute(IJobExecutionContext context)
         {
-            using (var message = new MailMessage("derekqua8@gmail.com", "testdestinationmail@gmail.com"))
+            using (var message = new MailMessage("testuser@gmail.com", "testdestinationmail@gmail.com"))
             {
                 message.Subject = "Message Subject test";
                 message.Body = "Message body test at " + DateTime.Now;
