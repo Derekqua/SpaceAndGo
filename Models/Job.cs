@@ -15,6 +15,8 @@ namespace ScheduledTask.Models
 {
     public class Jobclass : IJob
     {
+        public string Email { get; private set; }
+
         public async Task Execute(IJobExecutionContext context)
         {
             Article[] articles = { };
@@ -51,7 +53,7 @@ namespace ScheduledTask.Models
 
             //sending email
             var message = new MailMessage();
-            message.To.Add(new MailAddress(email.FromEmail));  // replace with valid value 
+            message.To.Add(new MailAddress(Email));  // replace with valid value 
             message.From = new MailAddress("spancengo198@gmail.com");  // replace with valid value
             message.Subject = "Space & Go";
             message.Body = content;
