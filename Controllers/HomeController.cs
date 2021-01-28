@@ -16,6 +16,7 @@ using System.Net.Mail;
 
 using Quartz;
 using Quartz.Impl;
+using ScheduledTask.Models;
 
 namespace SpaceAndGo.Controllers
 {
@@ -267,6 +268,24 @@ namespace SpaceAndGo.Controllers
                 //to display error message
                 return View(email);
             }
+        }
+
+        public static void Start()
+        {
+            IScheduler scheduler = (IScheduler)StdSchedulerFactory.GetDefaultScheduler();
+            scheduler.Start();
+
+            IJobDetail job = JobBuilder.Create<Jobclass>().Build();
+
+            ITrigger trigger = TriggerBuilder.Create()
+            .WithIdentity("trigger1", "group1")
+            .StartNow()
+            .WithSimpleSchedule(x => x
+            .WithIntervalInSeconds(10)
+            .RepeatForever())
+            .Build();
+
+            scheduler.ScheduleJob(job, trigger);
         }
 
 
