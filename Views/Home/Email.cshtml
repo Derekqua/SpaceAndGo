@@ -1,0 +1,50 @@
+﻿@model SpaceAndGo.Models.Form
+@{
+    ViewData["Title"] = "Email";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .title {
+        padding-top: 30px
+    }
+
+    .header {
+        text-align: center;
+    }
+
+    .email {
+        width: 30%;
+        height: 30px;
+    }
+
+    .form {
+        margin: auto;
+        padding-top: 20px
+    }
+
+
+    @@media screen and (max-width:575px) {
+        .email {
+            width: 60%;
+        }
+    }
+</style>
+
+<div class="header" onsubmit="validateForm()">
+    <h1 class="title">Space & GO</h1>
+    <img src="https://img.icons8.com/doodle/240/000000/apple-mail.png" />
+
+    <form class="form" asp-action="Email">
+        <span style="color:red;padding:inherit">@TempData["RouteMessage"]</span>
+        <input type="email" required class="email" placeholder="spacengo198@gmail.com" asp-for="FromEmail">
+        <input type="submit">
+    </form>
+
+</div>
+
+<script>
+    function validateForm() {
+        alert("Email will be sent to you shortly. Note: News will be sent to you daily.")
+    }
+</script>
