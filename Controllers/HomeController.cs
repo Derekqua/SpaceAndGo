@@ -270,22 +270,26 @@ namespace SpaceAndGo.Controllers
             }
         }
         */
-        public static void Start()
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> Email(Form email)
         {
-            IScheduler scheduler = (IScheduler)StdSchedulerFactory.GetDefaultScheduler();
-            scheduler.Start();
+            ISchedulerFactory schedulerFactory = new StdSchedulerFactory();
+            IScheduler scheduler = await schedulerFactory.GetScheduler();
+            await scheduler.Start();
 
             IJobDetail job = JobBuilder.Create<Jobclass>().Build();
 
             ITrigger trigger = TriggerBuilder.Create()
-            .WithIdentity("trigger1", "group1")
+            .WithIdentity("trigger1", "group1")                
             .StartNow()
             .WithSimpleSchedule(x => x
             .WithIntervalInSeconds(10)
             .RepeatForever())
             .Build();
 
-            scheduler.ScheduleJob(job, trigger);
+           await scheduler.ScheduleJob(job, trigger);
+            return View();
         }
 
 
