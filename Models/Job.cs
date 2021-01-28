@@ -10,13 +10,14 @@ using System.Net.Http;
 using Newtonsoft.Json;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Firebase.Database;
+using Firebase.Database.Query;
+
 
 namespace ScheduledTask.Models
 {
     public class Jobclass : IJob
     {
-        public string Email { get; private set; }
-
         public async Task Execute(IJobExecutionContext context)
         {
             Article[] articles = { };
@@ -51,9 +52,25 @@ namespace ScheduledTask.Models
                 num += 1;
             }
 
+            //retrieving email from firebase
+            var firebaseClient = new FirebaseClient("https://spaceandgo-938a9.firebaseio.com/"); //USE FOR LINKING TO DATABASE
+
+            //Retrieve data from Firebase
+            var dbLogins = await firebaseClient
+              .Child("Email")
+              .OnceAsync<Form>();
+            var emailList = new List<string>();
+            foreach (var login in dbLogins)
+            {
+                emailList.Add((login.Object.FromEmail));
+            }
+
             //sending email
             var message = new MailMessage();
-            message.To.Add(new MailAddress(Email));  // replace with valid value 
+            foreach (string i in emailList) {
+                message.To.Add(new MailAddress(i));
+            }
+            message.To.Add(new MailAddress("derekqua8@gmail.com"));  // replace with valid value 
             message.From = new MailAddress("spancengo198@gmail.com");  // replace with valid value
             message.Subject = "Space & Go";
             message.Body = content;

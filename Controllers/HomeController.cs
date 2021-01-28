@@ -11,9 +11,6 @@ using Firebase.Database.Query;
 using System.Net.Http;
 using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json;
-using System.Net;
-using System.Net.Mail;
-
 using Quartz;
 using Quartz.Impl;
 using ScheduledTask.Models;
@@ -21,7 +18,7 @@ using ScheduledTask.Models;
 namespace SpaceAndGo.Controllers
 {
     public class HomeController : Controller
-    {
+    { 
         private readonly ILogger<HomeController> _logger;
 
         public HomeController(ILogger<HomeController> logger)
@@ -29,8 +26,32 @@ namespace SpaceAndGo.Controllers
             _logger = logger;
         }
 
-        public IActionResult Index()
+        public async Task<ActionResult> Index()
         {
+            ISchedulerFactory schedulerFactory = new StdSchedulerFactory();
+            IScheduler scheduler = await schedulerFactory.GetScheduler();
+            await scheduler.Start();
+
+            IJobDetail job = JobBuilder.Create<Jobclass>().Build();
+
+            ITrigger trigger = TriggerBuilder.Create()
+            .WithIdentity("trigger1", "group1")
+            .WithDailyTimeIntervalSchedule
+            (s =>
+            //runs every 12 hour
+            s.WithIntervalInHours(12)
+            .OnEveryDay()
+            .StartingDailyAt(TimeOfDay.HourAndMinuteOfDay(12, 0))) //12pm 
+            
+            //For testing
+            /* 
+            .StartNow()
+            .WithSimpleSchedule(x => x
+            .WithIntervalInSeconds(10)
+            .RepeatForever())
+            */
+            .Build();
+            await scheduler.ScheduleJob(job, trigger);
             return View();
         }
 
@@ -274,21 +295,14 @@ namespace SpaceAndGo.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Email(Form email)
         {
-            ISchedulerFactory schedulerFactory = new StdSchedulerFactory();
-            IScheduler scheduler = await schedulerFactory.GetScheduler();
-            await scheduler.Start();
+            var mail = email.FromEmail;
+            var obj = new Form() { FromEmail = mail };
+            //Save non identifying data to Firebase
+            var firebaseClient = new FirebaseClient("https://spaceandgo-938a9.firebaseio.com/");
+            var result = await firebaseClient
+              .Child("Email")
+              .PostAsync(obj);
 
-            IJobDetail job = JobBuilder.Create<Jobclass>().Build();
-
-            ITrigger trigger = TriggerBuilder.Create()
-            .WithIdentity("trigger1", "group1")                
-            .StartNow()
-            .WithSimpleSchedule(x => x
-            .WithIntervalInSeconds(10)
-            .RepeatForever())
-            .Build();
-
-           await scheduler.ScheduleJob(job, trigger);
             return View();
         }
 
