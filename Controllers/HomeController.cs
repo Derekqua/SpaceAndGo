@@ -35,7 +35,7 @@ namespace SpaceAndGo.Controllers
             IJobDetail job = JobBuilder.Create<Jobclass>().Build();
 
             ITrigger trigger = TriggerBuilder.Create()
-            .WithIdentity("trigger1", "group1")
+            .WithIdentity("testing1")
             .WithDailyTimeIntervalSchedule
             (s =>
             //runs every 12 hour
@@ -44,14 +44,22 @@ namespace SpaceAndGo.Controllers
             .StartingDailyAt(TimeOfDay.HourAndMinuteOfDay(12, 0))) //12pm 
             
             //For testing
-            /* 
+            /*
             .StartNow()
             .WithSimpleSchedule(x => x
-            .WithIntervalInSeconds(10)
-            .RepeatForever())
-            */
+            .WithIntervalInSeconds(30)
+            .RepeatForever())*/
+            
             .Build();
-            await scheduler.ScheduleJob(job, trigger);
+            try
+            {
+                await scheduler.ScheduleJob(job, trigger);
+            }
+            catch (Exception e) {  //if exist
+               //do nothing
+            }
+
+            
             return View();
         }
 
