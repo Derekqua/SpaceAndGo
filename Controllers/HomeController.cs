@@ -14,6 +14,7 @@ using Newtonsoft.Json;
 using Quartz;
 using Quartz.Impl;
 using ScheduledTask.Models;
+using Google.Cloud.Firestore;
 
 namespace SpaceAndGo.Controllers
 {
@@ -197,13 +198,22 @@ namespace SpaceAndGo.Controllers
         public async Task<ActionResult> Details(int i)
         {
 
+
+            //FirestoreDb db = FirestoreDb.Create("space-and-go-storage");
+            // You can create references directly from FirestoreDb:
+            //CollectionReference Locations = db.Collection("Location/1/Past Crowds/29-1/8");
+            //DocumentReference londonFromDb = db.Document("Location/1");
+            //CollectionReference londonRestaurantsFromDb = db.Collection("cities/london/restaurants");
+            // Or from other references:
+            //DocumentReference londonFromCities = Locations.Document("london");
+            //CollectionReference londonRestaurantFromLondon = londonFromDb.Collection("restaurants");
+            //https://firebase.google.com/docs/firestore/quickstart?authuser=1#c_1
+
             var firebaseClient = new FirebaseClient("https://spaceandgo-938a9.firebaseio.com/"); //USE FOR LINKING TO DATABASE
             //Retrieve data from Firebase
             var dbLogins = await firebaseClient
               .Child("Location")
               .OnceAsync<LocationData>();
-            var locationList = new List<string>(); //DIFFERENT WAYS OF RETRIEVING DATA
-            var crowdList = new List<int>();
             var objectList = new List<object>();
             foreach (var login in dbLogins)
             {
@@ -211,6 +221,16 @@ namespace SpaceAndGo.Controllers
             }
             ViewBag.Object = objectList;
             ViewBag.Details = objectList[i];
+
+            var detailsList = new List<string>();
+            /*var details = await firebaseClient
+              .Child("Location/001/Nearby/data")
+              .OnceAsync<List<string>>();
+            foreach (var line in details)
+            {
+                detailsList.Add((line.data));
+            }
+            ViewBag.Test = detailsList;*/
             return View();
         }
 
