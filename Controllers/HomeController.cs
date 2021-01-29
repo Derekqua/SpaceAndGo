@@ -193,6 +193,28 @@ namespace SpaceAndGo.Controllers
             }
             
         }
+
+        public async Task<ActionResult> Details(int i)
+        {
+
+            var firebaseClient = new FirebaseClient("https://spaceandgo-938a9.firebaseio.com/"); //USE FOR LINKING TO DATABASE
+            //Retrieve data from Firebase
+            var dbLogins = await firebaseClient
+              .Child("Location")
+              .OnceAsync<LocationData>();
+            var locationList = new List<string>(); //DIFFERENT WAYS OF RETRIEVING DATA
+            var crowdList = new List<int>();
+            var objectList = new List<object>();
+            foreach (var login in dbLogins)
+            {
+                objectList.Add((login.Object));
+            }
+            ViewBag.Object = objectList;
+            ViewBag.Details = objectList[i];
+            return View();
+        }
+
+
         [HttpGet]
         public ActionResult Email()
         {
