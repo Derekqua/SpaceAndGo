@@ -234,7 +234,7 @@ namespace SpaceAndGo.Controllers
             ViewBag.Object = objectList;
             ViewBag.Details = objectList[i];
 
-            var detailsList = new List<string>();
+            var detailsList = new List<object>();
 
             var details = await firebaseClient
               .Child("Location")

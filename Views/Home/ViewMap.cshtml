@@ -157702,6 +157702,7 @@
             <li>Block 23</li>
         </ul>
         <br>
+		<h3>Number of Recent Confirmed Cases: @ViewBag.Object[0].Confirmed</h3>
         <a class="button button2" asp-route-id="1" asp-action="Details">Details</a>
         <h5>Some interesting graphs and charts</h5>
     </div>
@@ -157817,13 +157818,8 @@
 <script>
 
     function openNav(blk) {
-        //close all nav before open
-
-        alert("Hello" + blk);
-        //view data, tempdata etc cannot use in javascript
         //https://stackoverflow.com/questions/5863094/asp-net-mvc-using-viewdata-in-javascript
 
-        //close all tabs before opening
         var x = document.getElementsByClassName("sidenav");
         var i;
         for (i = 0; i < x.length; i++) {
@@ -157860,6 +157856,7 @@
 
             snapshot.forEach(function (data) {
                 var val = data.val();
+                var confirm = val.Confirmed;
                 var crowd = val.CrowdNow;
                 var content = "Current Crowd Level: " + val.CrowdNow; //chg crowdnumber
                 var location = val.Location;
@@ -157869,12 +157866,14 @@
                 $(id).html(content); //changing content
 
                 var elements = document.getElementsByClassName(loc);
+                if (confirm > 0) {
+					elements[0].style.outline = "solid";
+                }
 				if (crowd < 30) {
 					elements[0].style.fill = "#06d6a0";
 				}
 				else if (crowd < 70) {
 					elements[0].style.fill = "#ffd166";
-					elements[0].style.outline = "solid";
 				}
 				else if (crowd < 100) {
 					elements[0].style.fill = "#f4a261";

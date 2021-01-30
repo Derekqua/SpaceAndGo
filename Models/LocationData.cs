@@ -11,7 +11,7 @@ namespace SpaceAndGo.Models
         public string Location { get; set; } //LName in SQL database
         public int CrowdNow { get; set; }
 
-        //public object Nearby { get; set; }
+        public int Confirmed { get; set; }
 
         //public List<int> Data { get; set; }
 
