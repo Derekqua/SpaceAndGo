@@ -231,14 +231,15 @@ namespace SpaceAndGo.Controllers
             ViewBag.Details = objectList[i];
 
             var detailsList = new List<string>();
-            /*var details = await firebaseClient
-              .Child("Location/001/Nearby/data")
-              .OnceAsync<List<string>>();
+
+            var details = await firebaseClient
+              .Child("Location")
+              .OnceAsync<Details>();
             foreach (var line in details)
             {
-                detailsList.Add((line.data));
+                objectList.Add((line.Object));
             }
-            ViewBag.Test = detailsList;*/
+            ViewBag.Test = detailsList;
             return View();
         }
 
