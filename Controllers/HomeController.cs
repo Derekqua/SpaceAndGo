@@ -125,6 +125,7 @@ namespace SpaceAndGo.Controllers
             .Child("Location1/")
             .PostAsync(currentUserLogin);*/
 
+
             var firebaseClient = new FirebaseClient("https://spaceandgo-938a9.firebaseio.com/"); //USE FOR LINKING TO DATABASE
 
 
@@ -155,9 +156,11 @@ namespace SpaceAndGo.Controllers
         }
         public async Task<ActionResult> Counter()
         {
+            /*
             var firebaseClient = new FirebaseClient("https://spaceandgo-938a9.firebaseio.com/"); //USE FOR LINKING TO DATABASE
             
             //Retrieve data from Firebase
+            
             var crowddatanow = await firebaseClient
               .Child("Location")
               .OnceAsync<LocationData>();
@@ -172,6 +175,7 @@ namespace SpaceAndGo.Controllers
             ViewBag.Location = locationList;
             ViewBag.Crowd = crowdList;
             ViewBag.Data = objectList;
+            */
             return View();
 
         }
