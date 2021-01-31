@@ -89,6 +89,14 @@
                         var cell = row.getElementsByTagName("td")[0];
                         var id = cell.innerHTML;
                         alert("id:" + id);
+
+                        /*var location = id;
+                        var loc = location.replace(" ", "");
+                        loc = loc.replace("Block", "Blk");
+                        var id = "#" + loc; //setting id
+
+                        window.location.href = "ViewMap" + id;*/
+                        window.location.href = "ViewMap";
                     };
                 };
 
