@@ -42,7 +42,7 @@ namespace SpaceAndGo.Controllers
             //runs every 12 hour
             s.WithIntervalInHours(12)
             .OnEveryDay()
-            .StartingDailyAt(TimeOfDay.HourAndMinuteOfDay(12, 0))) //12pm 
+            .StartingDailyAt(TimeOfDay.HourAndMinuteOfDay(0, 0))) //12am 
             
             //For testing
             /*
