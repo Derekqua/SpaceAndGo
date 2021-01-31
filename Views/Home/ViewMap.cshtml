@@ -312012,26 +312012,167 @@
         <a class="button button2" asp-route-id="2" asp-action="Details">Details</a>
         <h5>Some interesting graphs and charts</h5>
     </div>
+	<!--Jolene Populating InfoBox-->>
     <div id="Blk31" class="sidenav">
         <a class="closebtn" onclick="closeNav('Blk31')">&times;</a>
         <h1>@ViewBag.Object[13].Location </h1>
-        <br>
-        <h3 id="@ViewBag.Object[13].Location.Replace(" ", "")">Current Crowd Level: @ViewBag.Object[13].CrowdNow</h3>
-        <br>
-        <h3>Here are some recommendations:</h3>
-        <br>
-        <ul>
-            <li>Block 5</li>
-            <li>Block 81</li>
-            <li>Block 23</li>
-        </ul>
-        <br>
-        <h3>Number of Recent Confirmed Cases: @ViewBag.Object[13].Confirmed</h3>
-        <a class="button button2" asp-route-id="13" asp-action="Details">Details</a>
-        <h5>Some interesting graphs and charts</h5>
+        <div class="welcome">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="content">
+                            <h2>Welcome to Dashboard</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <section class="statistics">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="box">
+                            <i class="fa fa-envelope fa-fw bg-primary"></i>
+                            <div class="info">
+                                <h3>1,245</h3> <span>Emails</span>
+                                <p>Lorem ipsum dolor sit amet</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="box">
+                            <i class="fa fa-file fa-fw danger"></i>
+                            <div class="info">
+                                <h3>34</h3> <span>Projects</span>
+                                <p>Lorem ipsum dolor sit amet</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="box">
+                            <i class="fa fa-users fa-fw success"></i>
+                            <div class="info">
+                                <h3>5,245</h3> <span>Users</span>
+                                <p>Lorem ipsum dolor sit amet</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="charts">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="chart-container">
+                            <h3>Chart</h3>
+                            <canvas id="myChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="chart-container">
+                            <h3>Chart2</h3>
+                            <canvas id="myChart2"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <h3 id="@ViewBag.Object[13].Location.Replace(" ", "")">Current Crowd Level: @ViewBag.Object[13].CrowdNow</h3>
+            <br>
+            <h3>Here are some recommendations:</h3>
+            <br>
+            <ul>
+                <li>Block 5</li>
+                <li>Block 81</li>
+                <li>Block 23</li>
+            </ul>
+            <br>
+            <h3>Number of Recent Confirmed Cases: @ViewBag.Object[13].Confirmed</h3>
+            <a class="button button2" asp-route-id="13" asp-action="Details">Details</a>
+            <h5>Some interesting graphs and charts</h5>
     </div>
     <!--end-->>
 </div>
+<!--Jolene ToDo-->>
+<style>
+    .welcome {
+        color: #CCC;
+    }
+
+        .welcome .content {
+            background-color: #313348;
+            padding: 15px;
+            margin-top: 25px;
+        }
+
+        .welcome h2 {
+            font-family: Calibri;
+            font-weight: 100;
+            margin-top: 0
+        }
+
+        .welcome p {
+            color: #999;
+        }
+
+
+    /* Start statistics */
+    .statistics {
+        margin-top: 25px;
+        color: #CCC;
+    }
+
+        .statistics .box {
+            background-color: #313348;
+            padding: 15px;
+            overflow: hidden;
+        }
+
+            .statistics .box > i {
+                float: left;
+                color: #FFF;
+                border-radius: 50%;
+                width: 60px;
+                height: 60px;
+                line-height: 60px;
+                font-size: 22px;
+            }
+
+            .statistics .box .info {
+                float: left;
+                width: auto;
+                margin-left: 10px;
+            }
+
+                .statistics .box .info h3 {
+                    margin: 5px 0 5px;
+                    display: inline-block;
+                }
+
+                .statistics .box .info p {
+                    color: #BBB
+                }
+
+    /* End statistics */
+    /* Start charts */
+    .charts {
+        margin-top: 25px;
+        color: #BBB
+    }
+
+        .charts .chart-container {
+            background-color: #313348;
+            padding: 15px;
+        }
+
+            .charts .chart-container h3 {
+                margin: 0 0 10px;
+                font-size: 17px;
+            }
+</style>
+<!--End of Jolene todo-->
 <style>
     .button {
         border: none;
