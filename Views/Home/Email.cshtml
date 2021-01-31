@@ -22,7 +22,10 @@
         margin: auto;
         padding-top: 20px
     }
-
+    .img {
+        width: 100%;
+        height: auto;
+    }
 
     @@media screen and (max-width:575px) {
         .email {
@@ -32,9 +35,9 @@
 </style>
 
 <div class="header" onsubmit="validateForm()">
-    <h1 class="title">Space & Go Newsletter</h1>
-    <h6>Sign up with your email to receive covid news daily at 12pm!</h6>
-    <img src="https://img.icons8.com/doodle/240/000000/apple-mail.png" />
+    <span class="msg-icn">So nice</span>
+    <h1></h1>
+    <img src="https://global-uploads.webflow.com/5bcb46130508ef456a7b2930/5f4c375c17865e08a63421ac_drawkit-og.png" />
 
     <form class="form" asp-action="Email">
         <span style="color:red;padding:inherit">@TempData["RouteMessage"]</span>
@@ -48,4 +51,98 @@
     function validateForm() {
         alert("Email will be sent to you shortly. Note: News will be sent to you daily.")
     }
+</script>
+<!--Message box-->
+<style>
+
+    body {
+        background: linear-gradient(to right, #536976, #292e49);
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+
+    .msg-icn {
+        display: inline-block;
+        position: relative;
+        padding: 10px 20px;
+        color: #fff;
+        box-sizing: border-box;
+        max-width: 300px;
+        min-width: 80px;
+        min-height: 38px;
+    }
+
+        .msg-icn:before {
+            content: "";
+            position: absolute;
+            display: block;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            border: 2px solid #e5a002;
+            border-radius: 2px;
+            box-sizing: border-box;
+            clip-path: polygon(0% 105%, 0% 0%, 105% 0%, 105% 105%, 43px 105%, 43px 80%, 21px 80%, 21px 105%);
+        }
+
+        .msg-icn:after {
+            content: "";
+            position: absolute;
+            display: block;
+            width: 25px;
+            height: 20px;
+            background: #e5a002;
+            top: calc(100% - 1px);
+            left: 20px;
+            box-sizing: border-box;
+            clip-path: polygon(0 0, 0% 100%, 100% 0%, calc(100% - 2px) 0, 1px calc(100% - 2px), 2px 0);
+        }
+</style>
+<script>
+    // This isn't necessary but more for demonstration purposes
+
+    const typSpd = 70;
+    const waitTime = 800;
+
+    const text = [
+        "Want to hear more Covid-19 related stuff?",
+        "Join our Space and Go newsletter!",
+        "Receive notifications and news daily at 12pm!",
+        "So...",
+        "What are you waiting for?",
+        "Subscribe to our newsletter with your email down below!"
+    ]
+
+    var mi = 0;
+
+    function writeString(e, str, i) {
+        e.innerHTML = e.innerHTML + str[i];
+
+        if (e.innerHTML.length == str.length && mi != text.length)
+            setTimeout(slowlyDelete, waitTime, e);
+    }
+
+    function deleteString(e) {
+        e.innerHTML = e.innerHTML.substring(0, e.innerHTML.length - 1);
+
+        if (e.innerHTML.length == 0)
+            slowlyWrite(e, text[mi++]);
+    }
+
+    function slowlyDelete(e) {
+        for (var i = 0; i < e.innerHTML.length; i++) {
+            setTimeout(deleteString, typSpd / 2 * i, e);
+        }
+    }
+
+    function slowlyWrite(e, str) {
+        for (var i = 0; i < str.length; i++) {
+            setTimeout(writeString, typSpd * i, e, str, i);
+        }
+    }
+
+    const msg = document.querySelector(".msg-icn");
+
+    slowlyDelete(msg);
 </script>
