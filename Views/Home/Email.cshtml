@@ -6,7 +6,8 @@
 
 <style>
     .title {
-        padding-top: 30px
+        padding-top: 30px;
+        color: white
     }
 
     .header {
@@ -23,21 +24,28 @@
         padding-top: 20px
     }
     .img {
-        width: 100%;
+        width: 70%;
         height: auto;
+        margin: 0 auto;
     }
 
     @@media screen and (max-width:575px) {
         .email {
             width: 60%;
         }
+        .img {
+            width: 300px;
+            height: 300px;
+            margin: 0 auto;
+        }
     }
 </style>
 
 <div class="header" onsubmit="validateForm()">
+    <h1 class="title">Space & Go Newsletter</h1>
     <span class="msg-icn">So nice</span>
     <h1></h1>
-    <img src="https://global-uploads.webflow.com/5bcb46130508ef456a7b2930/5f4c375c17865e08a63421ac_drawkit-og.png" />
+    <img src="~/images/email_image.png" />
 
     <form class="form" asp-action="Email">
         <span style="color:red;padding:inherit">@TempData["RouteMessage"]</span>
