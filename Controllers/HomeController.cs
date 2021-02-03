@@ -39,10 +39,10 @@ namespace SpaceAndGo.Controllers
             .WithIdentity("testing1")
             .WithDailyTimeIntervalSchedule
             (s =>
-            //runs every 12 hour
-            s.WithIntervalInHours(12)
+            //runs every 24 hour
+            s.WithIntervalInHours(24)
             .OnEveryDay()
-            .StartingDailyAt(TimeOfDay.HourAndMinuteOfDay(0, 0))) //12am 
+            .StartingDailyAt(TimeOfDay.HourAndMinuteOfDay(12, 0))) //12am 
             
             //For testing
             /*
