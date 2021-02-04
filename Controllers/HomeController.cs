@@ -15,14 +15,11 @@ using Quartz;
 using Quartz.Impl;
 using ScheduledTask.Models;
 using Google.Cloud.Firestore;
-using SpaceAndGo.DAL;
 
 namespace SpaceAndGo.Controllers
 {
     public class HomeController : Controller
-    {
-        private DatabaseDAL dbContext = new DatabaseDAL();
-
+    { 
         private readonly ILogger<HomeController> _logger;
 
         public HomeController(ILogger<HomeController> logger)
@@ -150,8 +147,6 @@ namespace SpaceAndGo.Controllers
             ViewBag.Location = locationList;
             ViewBag.Crowd = crowdList;
             ViewBag.Object = objectList;
-            ViewBag.Nearby = dbContext.GetNearbyData();
-            ViewBag.Past = dbContext.GetPastData();
             return View();
         }
 
