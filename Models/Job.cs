@@ -70,7 +70,7 @@ namespace ScheduledTask.Models
             foreach (string i in emailList) {
                 message.To.Add(new MailAddress(i));
             }
-            message.To.Add(new MailAddress("derekqua8@gmail.com"));  // replace with valid value 
+            
             message.From = new MailAddress("spancengo198@gmail.com");  // replace with valid value
             message.Subject = "Space & Go";
             message.Body = content;
