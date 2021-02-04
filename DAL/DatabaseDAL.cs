@@ -37,7 +37,7 @@ namespace SpaceAndGo.DAL
             conn = new SqlConnection(strConn);   //conn is like the key to database
         }
 
-        public List<LocationData> GetPastData()
+        public List<PastData> GetPastData()
         {
             //Create a SqlCommand object from connection object
             SqlCommand cmd = conn.CreateCommand();
@@ -48,15 +48,15 @@ namespace SpaceAndGo.DAL
             //Execute the SELECT SQL through a DataReader
             SqlDataReader reader = cmd.ExecuteReader();
             //Read all records until the end, save data into a staff list
-            List<LocationData> locationdataList = new List<LocationData>();
+            List<PastData> locationdataList = new List<PastData>();
             while (reader.Read())
             {
                 locationdataList.Add(
-                new LocationData
+                new PastData
                 {
                     LocationID= reader.GetInt32(0), //0: 1st column
-                    Time = reader.GetSqlDateTime(1), 
-                    CrowdNow = reader.GetInt32(2)
+                    Time = reader.GetInt32(1), 
+                    Crowd = reader.GetInt32(2)
                 }
             );
             }
